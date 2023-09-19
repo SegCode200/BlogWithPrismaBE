@@ -1,4 +1,5 @@
 import cors from "cors"
+// import cookie from "cookie-parser"
 import express,{ Application,Request, Response } from "express";
 // import helmet from "helmet";
 // import morgan from "morgan";
@@ -7,6 +8,7 @@ import express,{ Application,Request, Response } from "express";
 const mainApp =(app:Application)=>{
     app.use(cors())
     app.use(express.json())
+    // app.use(cookie())
     // app.use(morgan("dev"))
     // app.use(helmet())
 
@@ -28,3 +30,5 @@ const mainApp =(app:Application)=>{
     })
 
 }
+
+export default mainApp

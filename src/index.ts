@@ -1,14 +1,21 @@
 import express,{Application} from "express"
 import dotenv from "dotenv"
+import { PrismaClient } from '@prisma/client'
+import mainApp from "./mainApp"
+const prisma = new PrismaClient()
 dotenv.config()
 
 
 
 const app = express()
 
+const realport = parseInt(process.env.PORT!)
 
-const server = app.listen(process.env.PORT || 4000,()=>{
-    console.log("server is running")
+
+mainApp(app)
+
+const server = app.listen(realport || 4000,()=>{
+    console.log("server is running", realport)
 })
 
 
